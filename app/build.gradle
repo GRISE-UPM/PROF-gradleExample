@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()  
+}
+
+dependencies {
+    testCompileOnly 'org.junit.jupiter:junit-jupiter-api:5.11.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.3'
+}
+
+application {
+    mainClass = 'es.upm.grise.profundizacion.gradle_example.HelloWorld'
+    applicationDefaultJvmArgs = ['-Dparameter=a_value']
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'es.upm.grise.profundizacion.gradle_example.HelloWorld'
+    }
+}
+
+test {
+    useJUnitPlatform() 
+}
